@@ -1,1 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --darktrace-blue: #00a8ff;
+            --dark-bg: #1a1a1a;
+            --card-gray: #f8f9fa;
+        }
 
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+            gap: 15px;
+        }
+
+        .card {
+            background-color: var(--card-gray);
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+            width: 220px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+            border: 1px solid #e1e8ed;
+        }
+
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+
+        .card h3 { font-size: 15px; color: #2c3e50; margin-bottom: 8px; line-height: 1.2; }
+        .card p.subtitle { font-size: 11px; color: var(--darktrace-blue); font-weight: 700; text-transform: uppercase; margin: 0; }
+
+        .card-details {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 15px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            border-radius: 12px;
+        }
+
+        .card.active .card-details { opacity: 1; pointer-events: auto; }
+        .card-details p { font-size: 12px; line-height: 1.5; margin: 0; }
+        .icon { font-size: 35px; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="flex-container">
+    <div class="card" onclick="this.classList.toggle('active')">
+        <div class="icon">👤</div>
+        <h3>Usurpation d'identité</h3>
+        <p class="subtitle">Identité douteuse</p>
+        <div class="card-details">
+            <p>Le nom affiché est correct, mais l'adresse mail réelle est inconnue ou contient une faute de frappe invisible. L'IA bloque le mail pour éviter une arnaque au président.</p>
+        </div>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('active')">
+        <div class="icon">🔗</div>
+        <h3>Lien suspect</h3>
+        <p class="subtitle">Site inconnu</p>
+        <div class="card-details">
+            <p>Le mail contient un lien vers un site web créé très récemment ou vers lequel personne dans l'entreprise n'a jamais cliqué. Les liens sont désactivés par sécurité.</p>
+        </div>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('active')">
+        <div class="icon">🎭</div>
+        <h3>Ton inhabituel</h3>
+        <p class="subtitle">Changement de style</p>
+        <div class="card-details">
+            <p>Un collègue habituel vous envoie un message avec un ton ou une demande très différente de d'habitude. L'IA détecte cette anomalie comportementale.</p>
+        </div>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('active')">
+        <div class="icon">📡</div>
+        <h3>Serveur non fiable</h3>
+        <p class="subtitle">Origine invalide</p>
+        <div class="card-details">
+            <p>Le mail prétend venir d'une grande entreprise (ex: Microsoft, Banque), mais il a été envoyé depuis un serveur informatique non autorisé ou mal identifié.</p>
+        </div>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('active')">
+        <div class="icon">📎</div>
+        <h3>Pièce jointe risquée</h3>
+        <p class="subtitle">Fichier anormal</p>
+        <div class="card-details">
+            <p>Le fichier reçu a une extension rare (ex: .zip, .html) ou un poids inhabituel pour cet expéditeur. L'IA le met de côté pour analyse approfondie.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
